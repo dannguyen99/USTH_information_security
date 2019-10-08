@@ -7,8 +7,8 @@ int maj(int x, int y, int z){
     }else
         return 1;
 }
-{
-int mod2(int x)
+
+int mod2(int x){
     if( (x % 2) != 1){
         return 0;
     }
