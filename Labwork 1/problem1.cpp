@@ -9,10 +9,10 @@ int maj(int x, int y, int z){
 }
 
 int mod2(int x){
-    if( (x % 2) != 1){
-        return 0;
+    if( (x % 2) == 1){
+        return 1;
     }
-    else return 1;
+    else return 0;
 }
 
 int a5(int *X, int *Y, int *Z){
