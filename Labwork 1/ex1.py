@@ -1,15 +1,9 @@
 def maj(x, y, z):
-    if x + y + z < 2:
-        return 0
-    else:
-        return 1
+    return 0 if x + y + z < 2 else 1
 
 
 def mod2(x):
-    if x % 2 == 1:
-        return 1
-    else:
-        return 0
+    return 1 if x % 2 == 1 else 0
 
 
 def a5(X, Y, Z):

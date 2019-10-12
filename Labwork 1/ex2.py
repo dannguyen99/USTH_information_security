@@ -8,7 +8,7 @@ def to_dec(x):
 
 
 def square_and_multiply(base, power, mod):
-    before = base%mod
+    before = base % mod
     mod_value = [before]
     number_iter = len(to_bin(power))
     result = 1
