@@ -34,31 +34,28 @@ def mulinv(a, b):
         return x % b
 
 
-def gcd(a, b):
-    if a == 0:
-        return a
-    if b == 0:
-        return b
-    if a == b:
-        return a
-    if a > b:
-        return gcd(a - b, b)
-    return gcd(a, b - a)
-
-
-def lcm(a, b):
-    return (abs(a * b)) / gcd(a, b)
-
-
-def rsa(p, q, e, M, option="encrypt"):
-    n = p * q
-    if option == "encrypt":
-        return square_and_multiply(M, e, n)
+def signature(hx, p, q, alpha, d, ke):
+    beta = square_and_multiply(alpha, d, p)
+    r = square_and_multiply(square_and_multiply(alpha, ke, p), 1, q)
+    s = square_and_multiply((hx + d * r) * mulinv(ke, q), 1, q)
+    w = mulinv(s, q) % q
+    u1 = w * hx % q
+    u2 = w * r % q
+    v = square_and_multiply(
+        square_and_multiply(square_and_multiply(alpha, u1, p) * square_and_multiply(beta, u2, p), 1, p), 1, q)
+    print("beta = ", beta)
+    print("r = ", r)
+    print("s = ", s)
+    print("w = ", w)
+    print("u1 = ", u1)
+    print("u2 = ", u2)
+    print("v = ", v)
+    if v == r % q:
+        print("the signature is valid")
     else:
-        ctf = int(lcm((p - 1), (q - 1)))
-        d = mulinv(e, int(ctf))
-        return square_and_multiply(M, d, n)
+        print("invalid, please recompute")
 
 
-print(rsa(5, 17, 3, 29,'encrypt'))
-print(mulinv(10, 29))
+signature(26, 59, 29, 3, 7, 10)
+st = "abc"
+print(' '.join(format(ord(x), 'b') for x in st))

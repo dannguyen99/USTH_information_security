@@ -22,4 +22,4 @@ def square_and_multiply(base, power, mod):
     return result
 
 
-print(square_and_multiply(13789, 722341, 2345))
+print(square_and_multiply(20*29,1, 59))
