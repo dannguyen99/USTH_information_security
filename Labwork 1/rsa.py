@@ -52,13 +52,20 @@ def lcm(a, b):
 
 def rsa(p, q, e, M, option="encrypt"):
     n = p * q
+    ctf = int(lcm((p - 1), (q - 1)))
+    d = mulinv(e, int(ctf))
+    print("n = ", n)
+    print("ctf = ", ctf)
+    print("d = ", d)
+    print("public key: (n, e) = (",n,", ", e,")")
+    print("private key: d = ", d)
+    print
     if option == "encrypt":
+        print("the encrypted message is: C = ", square_and_multiply(M, e, n))
         return square_and_multiply(M, e, n)
     else:
-        ctf = int(lcm((p - 1), (q - 1)))
-        d = mulinv(e, int(ctf))
+        print("the decrypted message is: M = ", square_and_multiply(M, d, n))
         return square_and_multiply(M, d, n)
 
 
-print(rsa(5, 17, 3, 29,'encrypt'))
-print(mulinv(10, 29))
+rsa(5, 17, 3, 29, 'encrypt')
