@@ -56,6 +56,5 @@ def signature(hx, p, q, alpha, d, ke):
         print("invalid, please recompute")
 
 
+#insert your input here
 signature(26, 59, 29, 3, 7, 10)
-st = "abc"
-print(' '.join(format(ord(x), 'b') for x in st))
