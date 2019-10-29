@@ -11,4 +11,4 @@ def dhke(p, alpha, a, b):
     return key
 
 
-dhke(467, 2, 400, 57)
+dhke(467, 2, 23, 57)

@@ -20,4 +20,4 @@ def eds(p, alpha, d, ke, x):
     print("the private keys is d =", d)
 
 
-eds(467, 2, 127, 215, 231)
+eds(467, 2, 127, 213, 1601)
